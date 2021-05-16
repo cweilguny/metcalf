@@ -1,0 +1,24 @@
+{
+  "name": "metcalf",
+  "version": "1.0.0",
+  "description": "Metcalf is a task runner to run tasks with sets of parameters, configured in a JSON.",
+  "bin": {
+    "metcalf": "bin/metcalf-cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cweilguny/metcalf.git"
+  },
+  "keywords": [
+    "task",
+    "runner",
+    "task-runner",
+    "taskrunner",
+    "JSON",
+    "parameters",
+    "cli"
+  ],
+  "author": "Christian Weilguny",
+  "license": "MIT",
+  "homepage": "https://github.com/cweilguny/metcalf#readme"
+}

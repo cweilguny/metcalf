@@ -1,0 +1,42 @@
+{
+  "command": "touch",
+  "maxWorkers": 2,
+  "sets": {
+    "nr": [1, 2, 3],
+    "color": ["red", "green", "blue"],
+    "unused": ["this", "is", "not", "used"]
+  },
+  "tasks": {
+    "colors": {
+      "title": "Touch file example/@color@/NR@nr@.txt",
+      "run": [
+        "nr",
+        "color"
+      ],
+      "commandArgs": [
+        "example/@color@/NR@nr@.txt"
+      ],
+      "createDirs": [
+        "example/@color@"
+      ]
+    },
+    "task-with-inner-set": {
+      "title": "Touch file example/@inner@/NR@nr@.txt",
+      "manualOnly": true,
+      "sets": {
+        "inner": ["foo", "bar", "baz"]
+      },
+      "run": [
+        "nr",
+        "inner"
+      ],
+      "commandArgs": [
+        "example/@inner@/NR@nr@.txt"
+      ],
+      "createDirs": [
+        "example/i_am_an_example",
+        "example/@inner@"
+      ]
+    }
+  }
+}
