@@ -37,6 +37,16 @@ class Utils {
         }
         return defaultValue;
     }
+
+    static existsCliSwitch(argName) {
+        for (let i = 2; i < process.argv.length; i++) {
+            const arg = process.argv[i];
+            if (arg === argName) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
 class Task {
@@ -156,6 +166,11 @@ class QueueRunner {
             console.log('  ' + this.runCount + ': ' + queueItem.title);
             queueItem.createDirs.forEach(dir => this.createDir(dir));
             const process = spawn(Utils.getCliArg('command', queueItem.command), queueItem.args);
+            if (Utils.existsCliSwitch('verbose')) {
+                console.log('    Command: ' + queueItem.command);
+                console.log('    Arguments: ', queueItem.args);
+                console.log();
+            }
             process.on('exit', (code) => {
                 if (code === 0) {
                     this.successfulBuilds.push(queueItem.title);
