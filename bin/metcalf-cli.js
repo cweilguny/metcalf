@@ -20,7 +20,6 @@ class Utils {
 
     static getCliArgSplitBy(argName, splitBy, defaultValue) {
         let arg = Utils.getCliArg(argName);
-        console.log(arg);
         if (!arg) {
             return defaultValue;
         } else {
