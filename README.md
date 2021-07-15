@@ -21,11 +21,14 @@ combination of set variables.
 
 - Install using npm: `npm install -g metcalf`
 - Create a `Metcalf.json` wherever you need metcalf.
-  Refer to [Metcalf.json reference](Metcalf.json reference)
+  Refer to [Metcalf.json reference](#metcalfjson-reference)
   or the [Metcalf.example.json](Metcalf.example.json) file.
   for a feature complete example.
 - Run `metcalf` inside the directory where you placed
   the `Metcalf.json` file.
+- Metcalf will then build the cartesian product of all sets
+  listed in the `run` section of each job, and run the task for
+  each resulting combination.
 
   
 # Metcalf.json reference
@@ -50,9 +53,9 @@ which doesn't contain the comments and is a valid JSON file.
   "sets": {
     // A numeric set of variables, called "nr"
     "nr": [1, 2, 3],
-    // A textual set of variables, calls "color"
+    // A textual set of variables, called "color"
     "color": ["red", "green", "blue"],
-    // Another textual set of variables, calls "color"
+    // Another textual set of variables, called "unused"
     "unused": ["this", "is", "not", "used"]
   },
   // Definition of the tasks
@@ -60,7 +63,7 @@ which doesn't contain the comments and is a valid JSON file.
     // Start of a task, the JSON key of the task is just
     // for usage in error messages
     "colors": {
-      // Title of the task which will be printed for every job started;
+      // Title of the task which will be printed to console for every job started;
       // @...@ are references to set variables
       "title": "Change mtime of file example/@color@/NR@nr@.txt",
       // A combination of all values of every set mentioned in "run"

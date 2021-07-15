@@ -1,6 +1,6 @@
 {
   "name": "metcalf",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Metcalf is a task runner to run tasks with sets of parameters, configured in a JSON.",
   "bin": {
     "metcalf": "bin/metcalf-cli.js"
